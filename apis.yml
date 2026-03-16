@@ -1,98 +1,85 @@
-name: Atlassian Confluence API
-description: APIs for Atlassian Confluence, a team collaboration and wiki platform for creating, organizing, and discussing work with your team.
-image: https://www.atlassian.com/dam/jcr:e33efd9e-e0b8-4d61-a24d-68a48f0e3e86/confluence-icon-gradient-blue.svg
-url: https://developer.atlassian.com/cloud/confluence/rest/
-created: '2024-01-15'
-modified: '2024-01-15'
-specificationVersion: '0.18'
+aid: atlassian-confluence
+name: Atlassian Confluence
+description: >-
+  Atlassian Confluence is a team collaboration and wiki platform for creating,
+  organizing, and discussing work with your team. It provides APIs for managing
+  content, spaces, pages, users, and search across Confluence Cloud
+  deployments.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-- collaboration
-- wiki
-- documentation
-- knowledge management
-- content management
+  - Collaboration
+  - Wiki
+  - Documentation
+  - Knowledge Management
+  - Content Management
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/atlassian-confluence/refs/heads/main/apis.yml
+created: '2024-01-15'
+modified: '2026-03-16'
+specificationVersion: '0.19'
 apis:
-- name: Confluence Cloud REST API
-  description: The primary REST API for Confluence Cloud, providing access to content, spaces, users, and more.
-  image: https://www.atlassian.com/dam/jcr:e33efd9e-e0b8-4d61-a24d-68a48f0e3e86/confluence-icon-gradient-blue.svg
-  humanURL: https://developer.atlassian.com/cloud/confluence/rest/
-  baseURL: https://your-domain.atlassian.net/wiki/rest/api
-  tags:
-  - content
-  - spaces
-  - pages
-  - REST
-  properties:
-  - type: Documentation
-    url: https://developer.atlassian.com/cloud/confluence/rest/v1/intro/
-  - type: OpenAPI
-    url: https://dac-static.atlassian.com/cloud/confluence/swagger.v3.json
-  - type: Authentication
-    url: https://developer.atlassian.com/cloud/confluence/authentication/
-  - type: Rate Limits
-    url: https://developer.atlassian.com/cloud/confluence/rate-limiting/
-- name: Confluence Cloud REST API v2
-  description: The next generation REST API for Confluence Cloud with improved performance and new capabilities.
-  image: https://www.atlassian.com/dam/jcr:e33efd9e-e0b8-4d61-a24d-68a48f0e3e86/confluence-icon-gradient-blue.svg
-  humanURL: https://developer.atlassian.com/cloud/confluence/rest/v2/intro/
-  baseURL: https://your-domain.atlassian.net/wiki/api/v2
-  tags:
-  - content
-  - spaces
-  - pages
-  - REST
-  - v2
-  properties:
-  - type: Documentation
-    url: https://developer.atlassian.com/cloud/confluence/rest/v2/intro/
-  - type: OpenAPI
-    url: https://dac-static.atlassian.com/cloud/confluence/openapi-v2.v3.json
-- name: Confluence Content Properties API
-  description: API for managing properties attached to Confluence content.
-  image: https://www.atlassian.com/dam/jcr:e33efd9e-e0b8-4d61-a24d-68a48f0e3e86/confluence-icon-gradient-blue.svg
-  humanURL: https://developer.atlassian.com/cloud/confluence/rest/v1/api-group-content-properties/
-  baseURL: https://your-domain.atlassian.net/wiki/rest/api
-  tags:
-  - properties
-  - metadata
-  - content
-  properties:
-  - type: Documentation
-    url: https://developer.atlassian.com/cloud/confluence/rest/v1/api-group-content-properties/
-- name: Confluence Search API
-  description: API for searching content within Confluence using CQL (Confluence Query Language).
-  image: https://www.atlassian.com/dam/jcr:e33efd9e-e0b8-4d61-a24d-68a48f0e3e86/confluence-icon-gradient-blue.svg
-  humanURL: https://developer.atlassian.com/cloud/confluence/rest/v1/api-group-search/
-  baseURL: https://your-domain.atlassian.net/wiki/rest/api
-  tags:
-  - search
-  - CQL
-  - query
-  properties:
-  - type: Documentation
-    url: https://developer.atlassian.com/cloud/confluence/rest/v1/api-group-search/
-  - type: CQL Guide
-    url: https://developer.atlassian.com/cloud/confluence/advanced-searching-using-cql/
+  - aid: atlassian-confluence:confluence-cloud-rest-api
+    name: Confluence Cloud REST API
+    description: >-
+      The primary REST API for Confluence Cloud, providing access to content,
+      spaces, users, and more.
+    humanURL: https://developer.atlassian.com/cloud/confluence/rest/
+    baseURL: https://your-domain.atlassian.net/wiki/rest/api
+    tags:
+      - Content
+      - Spaces
+      - Pages
+      - REST
+    properties:
+      - type: Documentation
+        url: https://developer.atlassian.com/cloud/confluence/rest/v1/intro/
+      - type: OpenAPI
+        url: https://dac-static.atlassian.com/cloud/confluence/swagger.v3.json
+      - type: Authentication
+        url: https://developer.atlassian.com/cloud/confluence/authentication/
+      - type: Getting Started
+        url: https://developer.atlassian.com/cloud/confluence/getting-started/
+  - aid: atlassian-confluence:confluence-cloud-rest-api-v2
+    name: Confluence Cloud REST API v2
+    description: >-
+      The next generation REST API for Confluence Cloud with improved
+      performance and new capabilities.
+    humanURL: https://developer.atlassian.com/cloud/confluence/rest/v2/intro/
+    baseURL: https://your-domain.atlassian.net/wiki/api/v2
+    tags:
+      - Content
+      - Spaces
+      - Pages
+      - REST
+    properties:
+      - type: Documentation
+        url: https://developer.atlassian.com/cloud/confluence/rest/v2/intro/
+      - type: OpenAPI
+        url: https://dac-static.atlassian.com/cloud/confluence/openapi-v2.v3.json
 common:
-- type: Getting Started
-  url: https://developer.atlassian.com/cloud/confluence/getting-started/
-- type: API Status
-  url: https://status.atlassian.com/
-- type: Support
-  url: https://support.atlassian.com/
-- type: Community
-  url: https://community.atlassian.com/
-- type: Terms of Service
-  url: https://www.atlassian.com/legal/cloud-terms-of-service
-- type: Privacy Policy
-  url: https://www.atlassian.com/legal/privacy-policy
-- type: OAuth 2.0
-  url: https://developer.atlassian.com/cloud/confluence/oauth-2-3lo-apps/
-- type: Webhooks
-  url: https://developer.atlassian.com/cloud/confluence/modules/webhook/
-- type: Change Log
-  url: https://developer.atlassian.com/cloud/confluence/changelog/
+  - type: Website
+    url: https://www.atlassian.com/software/confluence
+  - type: Documentation
+    url: https://developer.atlassian.com/cloud/confluence/
+  - type: Getting Started
+    url: https://developer.atlassian.com/cloud/confluence/getting-started/
+  - type: Authentication
+    url: https://developer.atlassian.com/cloud/confluence/oauth-2-3lo-apps/
+  - type: Change Log
+    url: https://developer.atlassian.com/cloud/confluence/changelog/
+  - type: Status
+    url: https://status.atlassian.com/
+  - type: Support
+    url: https://support.atlassian.com/
+  - type: Community
+    url: https://community.atlassian.com/
+  - type: Terms of Service
+    url: https://www.atlassian.com/legal/cloud-terms-of-service
+  - type: Privacy Policy
+    url: https://www.atlassian.com/legal/privacy-policy
+  - type: GitHub Organization
+    url: https://github.com/atlassian
 maintainers:
-- name: Atlassian
-  email: developers@atlassian.com
-  url: https://www.atlassian.com/
+  - FN: Kin Lane
+    email: kin@apievangelist.com
