@@ -9,10 +9,10 @@ type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - Collaboration
-  - Wiki
+  - Content Management
   - Documentation
   - Knowledge Management
-  - Content Management
+  - Wiki
 url: >-
   https://raw.githubusercontent.com/api-evangelist/atlassian-confluence/refs/heads/main/apis.yml
 created: '2024-01-15'
@@ -28,9 +28,9 @@ apis:
     baseURL: https://your-domain.atlassian.net/wiki/rest/api
     tags:
       - Content
-      - Spaces
       - Pages
       - REST
+      - Spaces
     properties:
       - type: Documentation
         url: https://developer.atlassian.com/cloud/confluence/rest/v1/intro/
@@ -49,9 +49,9 @@ apis:
     baseURL: https://your-domain.atlassian.net/wiki/api/v2
     tags:
       - Content
-      - Spaces
       - Pages
       - REST
+      - Spaces
     properties:
       - type: Documentation
         url: https://developer.atlassian.com/cloud/confluence/rest/v2/intro/
