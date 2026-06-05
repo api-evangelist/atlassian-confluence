@@ -1,13 +1,21 @@
 # Atlassian Confluence (atlassian-confluence)
+
 Atlassian Confluence is a team collaboration and wiki platform for creating, organizing, and discussing work with your team. It provides REST APIs (v1 and v2) and a GraphQL API for managing content, spaces, pages, users, labels, and search across Confluence Cloud deployments, enabling automation, app development, and integration with enterprise workflows.
 
-**URL:** [https://www.atlassian.com/software/confluence](https://www.atlassian.com/software/confluence)
+**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/atlassian-confluence/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/atlassian-confluence/refs/heads/main/apis.yml)
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Scope
 
-## Tags:
+- **Type:** Index
 
- - Atlassian, Collaboration, Content Management, Documentation, Knowledge Management, Wiki
+## Tags
+
+- Atlassian
+- Collaboration
+- Content Management
+- Documentation
+- Knowledge Management
+- Wiki
 
 ## Timestamps
 
@@ -17,108 +25,94 @@ Atlassian Confluence is a team collaboration and wiki platform for creating, org
 ## APIs
 
 ### Confluence Cloud REST API
+
 The primary REST API for Confluence Cloud, providing access to content, spaces, users, and more.
 
-**Human URL:** [https://developer.atlassian.com/cloud/confluence/rest/](https://developer.atlassian.com/cloud/confluence/rest/)
+- **Human URL:** [https://developer.atlassian.com/cloud/confluence/rest/](https://developer.atlassian.com/cloud/confluence/rest/)
+- **Base URL:** `https://your-domain.atlassian.net/wiki/rest/api`
 
-#### Tags:
+#### Tags
 
- - Content, Pages, REST, Spaces
+- Content
+- Pages
+- REST
+- Spaces
 
 #### Properties
 
 - [Documentation](https://developer.atlassian.com/cloud/confluence/rest/v1/intro/)
-- [OpenAPI](https://dac-static.atlassian.com/cloud/confluence/swagger.v3.json)
+- [OpenAPI](https://dac-static.atlassian.com/cloud/confluence/swagger.v3.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
 - [Authentication](https://developer.atlassian.com/cloud/confluence/authentication/)
-- [GettingStarted](https://developer.atlassian.com/cloud/confluence/getting-started/)
+- [Getting Started](https://developer.atlassian.com/cloud/confluence/getting-started/)
+- [Postman Collection](collections/atlassian-confluence.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/atlassian-confluence.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### Confluence Cloud REST API V2
+
 The next generation REST API for Confluence Cloud with improved performance and new capabilities.
 
-**Human URL:** [https://developer.atlassian.com/cloud/confluence/rest/v2/intro/](https://developer.atlassian.com/cloud/confluence/rest/v2/intro/)
+- **Human URL:** [https://developer.atlassian.com/cloud/confluence/rest/v2/intro/](https://developer.atlassian.com/cloud/confluence/rest/v2/intro/)
+- **Base URL:** `https://your-domain.atlassian.net/wiki/api/v2`
 
-#### Tags:
+#### Tags
 
- - Content, Pages, REST, Spaces
+- Content
+- Pages
+- REST
+- Spaces
 
 #### Properties
 
 - [Documentation](https://developer.atlassian.com/cloud/confluence/rest/v2/intro/)
-- [OpenAPI](https://dac-static.atlassian.com/cloud/confluence/openapi-v2.v3.json)
+- [OpenAPI](https://dac-static.atlassian.com/cloud/confluence/openapi-v2.v3.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/atlassian-confluence.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/atlassian-confluence.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### Confluence Cloud GraphQL API
+
 The Confluence Cloud GraphQL API provides flexible querying and mutation capabilities for Confluence content, spaces, pages, and user data using OAuth 2.0 authentication.
 
-**Human URL:** [https://developer.atlassian.com/cloud/confluence/graphql/](https://developer.atlassian.com/cloud/confluence/graphql/)
+- **Human URL:** [https://developer.atlassian.com/cloud/confluence/graphql/](https://developer.atlassian.com/cloud/confluence/graphql/)
+- **Base URL:** `https://api.atlassian.com/graphql`
 
-#### Tags:
+#### Tags
 
- - Content, GraphQL, Pages, Spaces
+- Content
+- GraphQL
+- Pages
+- Spaces
 
 #### Properties
 
 - [Documentation](https://developer.atlassian.com/cloud/confluence/graphql/)
+- [Postman Collection](collections/atlassian-confluence.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/atlassian-confluence.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ## Common Properties
 
+- [LinkedIn](https://www.linkedin.com/showcase/confluence-by-atlassian)
 - [Website](https://www.atlassian.com/software/confluence)
 - [Documentation](https://developer.atlassian.com/cloud/confluence/)
-- [GettingStarted](https://developer.atlassian.com/cloud/confluence/getting-started/)
+- [Getting Started](https://developer.atlassian.com/cloud/confluence/getting-started/)
 - [Authentication](https://developer.atlassian.com/cloud/confluence/oauth-2-3lo-apps/)
-- [RateLimits](https://developer.atlassian.com/cloud/confluence/rate-limiting/)
-- [ChangeLog](https://developer.atlassian.com/cloud/confluence/changelog/)
-- [StatusPage](https://status.atlassian.com/)
+- [Changelog](https://developer.atlassian.com/cloud/confluence/changelog/)
+- [Status Page](https://status.atlassian.com/)
 - [Support](https://support.atlassian.com/)
 - [Community](https://community.atlassian.com/)
-- [TermsOfService](https://www.atlassian.com/legal/cloud-terms-of-service)
-- [PrivacyPolicy](https://www.atlassian.com/legal/privacy-policy)
-- [GitHubOrganization](https://github.com/atlassian)
-- [Pricing](https://www.atlassian.com/software/confluence/pricing)
-- [SignUp](https://www.atlassian.com/software/confluence)
+- [Terms of Service](https://www.atlassian.com/legal/cloud-terms-of-service)
+- [Privacy Policy](https://www.atlassian.com/legal/privacy-policy)
+- [GitHub Organization](https://github.com/atlassian)
+- [Rate Limits](https://developer.atlassian.com/cloud/confluence/rate-limiting/)
 - [Blog](https://developer.atlassian.com/blog/)
+- [Pricing](https://www.atlassian.com/software/confluence/pricing)
+- [Sign Up](https://www.atlassian.com/software/confluence)
 - [SDK](https://developer.atlassian.com/platform/forge/)
-
-## Features
-
-| Name | Description |
-|------|-------------|
-| Content Management API | Create, read, update, and delete Confluence pages, blog posts, and spaces programmatically via REST or GraphQL. |
-| CQL Search | Execute powerful content searches using Confluence Query Language (CQL) to find pages, users, and spaces. |
-| User and Group Management | Manage Confluence users, groups, and permissions programmatically using the REST API. |
-| Forge App Development | Build Confluence apps with the Atlassian Forge platform using serverless functions and UI extensions. |
-| Webhook Support | Subscribe to Confluence events via webhooks to trigger workflows on content creation, update, and deletion. |
-| OAuth 2.0 Authentication | Secure API access via OAuth 2.0 three-legged authorization for user-facing integrations. |
-
-## Use Cases
-
-| Name | Description |
-|------|-------------|
-| Documentation Automation | Automatically create and update Confluence pages from CI/CD pipelines, JIRA data, or external documentation sources. |
-| Content Migration | Migrate content from other wikis and knowledge bases into Confluence using the REST API bulk import capabilities. |
-| Enterprise Search Integration | Index and search Confluence content from enterprise search platforms using the CQL search API. |
-| Custom App Development | Build custom Confluence apps and macros using Forge to extend the platform with team-specific workflows. |
-| Reporting and Analytics | Extract page views, space statistics, and content metadata for custom analytics and reporting dashboards. |
-
-## Integrations
-
-| Name | Description |
-|------|-------------|
-| Jira | Deep native integration linking Confluence pages to Jira issues, projects, and sprints for unified project documentation. |
-| Slack | Confluence Slack integration for notifications, page previews, and content sharing within Slack channels. |
-| Microsoft Teams | Share and preview Confluence pages within Microsoft Teams with native connector support. |
-| Trello | Link Trello boards to Confluence spaces for project documentation aligned with Kanban workflows. |
-| Bitbucket | Embed Bitbucket code snippets and repository information in Confluence pages using Smart Links. |
-
-## Solutions
-
-| Name | Description |
-|------|-------------|
-| Team Knowledge Base | Create a structured team knowledge base with organized spaces, nested pages, and templates for documentation. |
-| Technical Documentation | Maintain living technical documentation alongside development workflows with API-driven updates. |
-| Project Collaboration | Facilitate project planning, retrospectives, and cross-team collaboration with integrated Jira and Confluence workspaces. |
+- [Features](undefined)
+- [Use Cases](undefined)
+- [Integrations](undefined)
+- [Solutions](undefined)
 
 ## Maintainers
 
 **FN:** Kin Lane
-
 **Email:** kin@apievangelist.com
