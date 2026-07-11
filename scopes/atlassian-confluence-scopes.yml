@@ -1,0 +1,54 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/atlassian-confluence-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/atlassian-confluence-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://auth.atlassian.com/authorize
+    tokenUrl: https://auth.atlassian.com/oauth/token
+  description: OAuth 2.0 (3LO) for Atlassian Cloud Connect/Forge apps
+scopes:
+- scope: read:confluence-content.all
+  description: Read full content
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/atlassian-confluence-openapi.yml
+- scope: read:confluence-content.summary
+  description: Read content summaries
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/atlassian-confluence-openapi.yml
+- scope: read:page:confluence
+  description: Read pages (v2)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/atlassian-confluence-openapi.yml
+- scope: read:space:confluence
+  description: Read spaces (v2)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/atlassian-confluence-openapi.yml
+- scope: write:confluence-content
+  description: Create, update, and delete content
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/atlassian-confluence-openapi.yml
+- scope: write:page:confluence
+  description: Create and update pages (v2)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/atlassian-confluence-openapi.yml
+- scope: write:space:confluence
+  description: Create and update spaces (v2)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/atlassian-confluence-openapi.yml

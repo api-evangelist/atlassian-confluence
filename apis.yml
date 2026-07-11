@@ -72,6 +72,8 @@ apis:
   - url: graphql/atlassian-confluence-graphql.md
     type: GraphQL
 common:
+- type: OAuthScopes
+  url: scopes/atlassian-confluence-scopes.yml
 - type: LinkedIn
   url: https://www.linkedin.com/showcase/confluence-by-atlassian
 - type: Website
