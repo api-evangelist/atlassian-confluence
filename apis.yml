@@ -72,6 +72,14 @@ apis:
   - url: graphql/atlassian-confluence-graphql.md
     type: GraphQL
 common:
+- type: TrustCenter
+  url: security/atlassian-confluence-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/atlassian-confluence-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/atlassian-confluence-domain-security.yml
+- type: Authentication
+  url: authentication/atlassian-confluence-authentication.yml
 - type: OAuthScopes
   url: scopes/atlassian-confluence-scopes.yml
 - type: LinkedIn
