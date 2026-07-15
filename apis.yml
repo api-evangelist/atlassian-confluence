@@ -72,6 +72,8 @@ apis:
   - url: graphql/atlassian-confluence-graphql.md
     type: GraphQL
 common:
+- type: AgenticAccess
+  url: agentic-access/atlassian-confluence-agentic-access.yml
 - type: TrustCenter
   url: security/atlassian-confluence-trust-center.yml
 - type: VulnerabilityDisclosure
