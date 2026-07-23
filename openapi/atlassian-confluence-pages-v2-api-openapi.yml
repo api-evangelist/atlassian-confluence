@@ -1,0 +1,245 @@
+openapi: 3.1.0
+info:
+  title: Atlassian Confluence Cloud REST API (v1 and v2) Content (v1) Content (v1) Pages (v2) API
+  version: '2.0'
+  description: 'Confluence Cloud exposes both a v1 REST API (under /wiki/rest/api) for
+
+    legacy content operations and a v2 REST API (under /wiki/api/v2) for
+
+    cursor-paginated access to pages, spaces, attachments, labels, and
+
+    comments. The v2 surface is the recommended one for new integrations.
+
+    '
+  contact:
+    name: Atlassian Developer
+    url: https://developer.atlassian.com/cloud/confluence/
+servers:
+- url: https://your-domain.atlassian.net/wiki
+  description: Tenant Confluence Cloud site
+  variables:
+    your-domain:
+      default: example
+      description: Your Atlassian site subdomain
+tags:
+- name: Pages (v2)
+  description: Modern cursor-paginated pages
+paths:
+  /api/v2/pages:
+    get:
+      tags:
+      - Pages (v2)
+      summary: List pages
+      parameters:
+      - name: id
+        in: query
+        schema:
+          type: array
+          items:
+            type: integer
+      - name: space-id
+        in: query
+        schema:
+          type: array
+          items:
+            type: integer
+      - name: sort
+        in: query
+        schema:
+          type: string
+      - name: status
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - current
+            - archived
+            - deleted
+            - trashed
+      - name: title
+        in: query
+        schema:
+          type: string
+      - name: body-format
+        in: query
+        schema:
+          type: string
+          enum:
+          - storage
+          - atlas_doc_format
+          - view
+      - name: cursor
+        in: query
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          default: 25
+      responses:
+        '200':
+          description: Page list
+      security:
+      - basicAuth: []
+      - oauth2:
+        - read:page:confluence
+    post:
+      tags:
+      - Pages (v2)
+      summary: Create a page
+      parameters:
+      - name: embedded
+        in: query
+        schema:
+          type: boolean
+      - name: private
+        in: query
+        schema:
+          type: boolean
+      - name: root-level
+        in: query
+        schema:
+          type: boolean
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - spaceId
+              properties:
+                spaceId:
+                  type: string
+                status:
+                  type: string
+                  enum:
+                  - current
+                  - draft
+                title:
+                  type: string
+                parentId:{ type: string }
+                body:
+                  type: object
+                  properties:
+                    representation:
+                      type: string
+                      enum:
+                      - storage
+                      - atlas_doc_format
+                      - wiki
+                    value:
+                      type: string
+      responses:
+        '200':
+          description: Page created
+      security:
+      - basicAuth: []
+      - oauth2:
+        - write:page:confluence
+  /api/v2/pages/{id}:
+    get:
+      tags:
+      - Pages (v2)
+      summary: Get a page
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: body-format
+        in: query
+        schema:
+          type: string
+      - name: get-draft
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Page
+      security:
+      - basicAuth: []
+      - oauth2:
+        - read:page:confluence
+    put:
+      tags:
+      - Pages (v2)
+      summary: Update a page
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Page updated
+      security:
+      - basicAuth: []
+      - oauth2:
+        - write:page:confluence
+    delete:
+      tags:
+      - Pages (v2)
+      summary: Delete a page
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '204':
+          description: No Content
+      security:
+      - basicAuth: []
+      - oauth2:
+        - write:page:confluence
+  /api/v2/pages/{id}/title:
+    put:
+      tags:
+      - Pages (v2)
+      summary: Update only the page title
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Page updated
+      security:
+      - basicAuth: []
+      - oauth2:
+        - write:page:confluence
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: 'Basic auth using your Atlassian account email and an API token
+
+        generated at https://id.atlassian.com/manage-profile/security/api-tokens.
+
+        '
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 (3LO) for Atlassian Cloud Connect/Forge apps
+      flows:
+        authorizationCode:
+          authorizationUrl: https://auth.atlassian.com/authorize
+          tokenUrl: https://auth.atlassian.com/oauth/token
+          scopes:
+            read:confluence-content.summary: Read content summaries
+            read:confluence-content.all: Read full content
+            write:confluence-content: Create, update, and delete content
+            read:page:confluence: Read pages (v2)
+            write:page:confluence: Create and update pages (v2)
+            read:space:confluence: Read spaces (v2)
+            write:space:confluence: Create and update spaces (v2)

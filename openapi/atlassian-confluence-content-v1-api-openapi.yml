@@ -1,0 +1,184 @@
+openapi: 3.1.0
+info:
+  title: Atlassian Confluence Cloud REST API (v1 and v2) Content (v1) Content (v1) Content (v1) API
+  version: '2.0'
+  description: 'Confluence Cloud exposes both a v1 REST API (under /wiki/rest/api) for
+
+    legacy content operations and a v2 REST API (under /wiki/api/v2) for
+
+    cursor-paginated access to pages, spaces, attachments, labels, and
+
+    comments. The v2 surface is the recommended one for new integrations.
+
+    '
+  contact:
+    name: Atlassian Developer
+    url: https://developer.atlassian.com/cloud/confluence/
+servers:
+- url: https://your-domain.atlassian.net/wiki
+  description: Tenant Confluence Cloud site
+  variables:
+    your-domain:
+      default: example
+      description: Your Atlassian site subdomain
+tags:
+- name: Content (v1)
+  description: Legacy /rest/api/content operations
+paths:
+  /rest/api/content/archive:
+    post:
+      tags:
+      - Content (v1)
+      summary: Archive one or more pages
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                pages:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+      responses:
+        '202':
+          description: Accepted; returns a long task ID
+      security:
+      - basicAuth: []
+      - oauth2:
+        - write:confluence-content
+  /rest/api/content/blueprint/instance/{draftId}:
+    post:
+      tags:
+      - Content (v1)
+      summary: Publish a legacy draft created from a blueprint
+      parameters:
+      - name: draftId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: status
+        in: query
+        schema:
+          type: string
+          enum:
+          - draft
+          - current
+      - name: expand
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContentInput'
+      responses:
+        '200':
+          description: Content
+      security:
+      - basicAuth: []
+      - oauth2:
+        - write:confluence-content
+    put:
+      tags:
+      - Content (v1)
+      summary: Publish a shared draft created from a blueprint
+      parameters:
+      - name: draftId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: status
+        in: query
+        schema:
+          type: string
+          enum:
+          - draft
+          - current
+      - name: expand
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContentInput'
+      responses:
+        '200':
+          description: Content
+      security:
+      - basicAuth: []
+      - oauth2:
+        - write:confluence-content
+components:
+  schemas:
+    ContentInput:
+      type: object
+      required:
+      - version
+      - title
+      - type
+      properties:
+        version:
+          type: object
+          properties:
+            number:
+              type: integer
+        title:
+          type: string
+        type:
+          type: string
+          enum:
+          - page
+          - blogpost
+        status:{ type: string }
+        space:
+          type: object
+          properties:
+            key:
+              type: string
+        ancestors:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: 'Basic auth using your Atlassian account email and an API token
+
+        generated at https://id.atlassian.com/manage-profile/security/api-tokens.
+
+        '
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 (3LO) for Atlassian Cloud Connect/Forge apps
+      flows:
+        authorizationCode:
+          authorizationUrl: https://auth.atlassian.com/authorize
+          tokenUrl: https://auth.atlassian.com/oauth/token
+          scopes:
+            read:confluence-content.summary: Read content summaries
+            read:confluence-content.all: Read full content
+            write:confluence-content: Create, update, and delete content
+            read:page:confluence: Read pages (v2)
+            write:page:confluence: Create and update pages (v2)
+            read:space:confluence: Read spaces (v2)
+            write:space:confluence: Create and update spaces (v2)

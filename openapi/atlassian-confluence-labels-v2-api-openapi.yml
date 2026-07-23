@@ -1,0 +1,93 @@
+openapi: 3.1.0
+info:
+  title: Atlassian Confluence Cloud REST API (v1 and v2) Content (v1) Content (v1) Labels (v2) API
+  version: '2.0'
+  description: 'Confluence Cloud exposes both a v1 REST API (under /wiki/rest/api) for
+
+    legacy content operations and a v2 REST API (under /wiki/api/v2) for
+
+    cursor-paginated access to pages, spaces, attachments, labels, and
+
+    comments. The v2 surface is the recommended one for new integrations.
+
+    '
+  contact:
+    name: Atlassian Developer
+    url: https://developer.atlassian.com/cloud/confluence/
+servers:
+- url: https://your-domain.atlassian.net/wiki
+  description: Tenant Confluence Cloud site
+  variables:
+    your-domain:
+      default: example
+      description: Your Atlassian site subdomain
+tags:
+- name: Labels (v2)
+  description: Labels and label-targeted listings
+paths:
+  /api/v2/labels/{id}/pages:
+    get:
+      tags:
+      - Labels (v2)
+      summary: List pages with the given label
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: space-id
+        in: query
+        schema:
+          type: array
+          items:
+            type: integer
+      - name: body-format
+        in: query
+        schema:
+          type: string
+      - name: sort
+        in: query
+        schema:
+          type: string
+      - name: cursor
+        in: query
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          default: 25
+      responses:
+        '200':
+          description: Page list
+      security:
+      - basicAuth: []
+      - oauth2:
+        - read:page:confluence
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: 'Basic auth using your Atlassian account email and an API token
+
+        generated at https://id.atlassian.com/manage-profile/security/api-tokens.
+
+        '
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 (3LO) for Atlassian Cloud Connect/Forge apps
+      flows:
+        authorizationCode:
+          authorizationUrl: https://auth.atlassian.com/authorize
+          tokenUrl: https://auth.atlassian.com/oauth/token
+          scopes:
+            read:confluence-content.summary: Read content summaries
+            read:confluence-content.all: Read full content
+            write:confluence-content: Create, update, and delete content
+            read:page:confluence: Read pages (v2)
+            write:page:confluence: Create and update pages (v2)
+            read:space:confluence: Read spaces (v2)
+            write:space:confluence: Create and update spaces (v2)

@@ -1,0 +1,222 @@
+openapi: 3.1.0
+info:
+  title: Atlassian Confluence Cloud REST API (v1 and v2) Content (v1) Content (v1) Spaces (v2) API
+  version: '2.0'
+  description: 'Confluence Cloud exposes both a v1 REST API (under /wiki/rest/api) for
+
+    legacy content operations and a v2 REST API (under /wiki/api/v2) for
+
+    cursor-paginated access to pages, spaces, attachments, labels, and
+
+    comments. The v2 surface is the recommended one for new integrations.
+
+    '
+  contact:
+    name: Atlassian Developer
+    url: https://developer.atlassian.com/cloud/confluence/
+servers:
+- url: https://your-domain.atlassian.net/wiki
+  description: Tenant Confluence Cloud site
+  variables:
+    your-domain:
+      default: example
+      description: Your Atlassian site subdomain
+tags:
+- name: Spaces (v2)
+  description: Spaces and space settings
+paths:
+  /api/v2/spaces:
+    get:
+      tags:
+      - Spaces (v2)
+      summary: List spaces
+      parameters:
+      - name: ids
+        in: query
+        schema:
+          type: array
+          items:
+            type: integer
+      - name: keys
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: type
+        in: query
+        schema:
+          type: string
+          enum:
+          - global
+          - personal
+          - collaboration
+          - knowledge_base
+      - name: status
+        in: query
+        schema:
+          type: string
+          enum:
+          - current
+          - archived
+      - name: labels
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: sort
+        in: query
+        schema:
+          type: string
+      - name: description-format
+        in: query
+        schema:
+          type: string
+      - name: include-icon
+        in: query
+        schema:
+          type: boolean
+      - name: cursor
+        in: query
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          default: 25
+      responses:
+        '200':
+          description: Space list
+      security:
+      - basicAuth: []
+      - oauth2:
+        - read:space:confluence
+    post:
+      tags:
+      - Spaces (v2)
+      summary: Create a space
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              properties:
+                name:
+                  type: string
+                key:
+                  type: string
+                alias:
+                  type: string
+                description:
+                  type: object
+                roleAssignments:
+                  type: array
+                  items:
+                    type: object
+                copySpaceAccessConfiguration:
+                  type: boolean
+                createPrivateSpace:
+                  type: boolean
+                templateKey:
+                  type: string
+      responses:
+        '200':
+          description: Space created
+      security:
+      - basicAuth: []
+      - oauth2:
+        - write:space:confluence
+  /api/v2/spaces/{id}:
+    get:
+      tags:
+      - Spaces (v2)
+      summary: Get a space
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: description-format
+        in: query
+        schema:
+          type: string
+      - name: include-icon
+        in: query
+        schema:
+          type: boolean
+      - name: include-operations
+        in: query
+        schema:
+          type: boolean
+      - name: include-properties
+        in: query
+        schema:
+          type: boolean
+      - name: include-permissions
+        in: query
+        schema:
+          type: boolean
+      - name: include-role-assignments
+        in: query
+        schema:
+          type: boolean
+      - name: include-labels
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Space
+      security:
+      - basicAuth: []
+      - oauth2:
+        - read:space:confluence
+  /api/v2/spaces/{id}/pages:
+    get:
+      tags:
+      - Spaces (v2)
+      summary: List pages in a space
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Page list
+      security:
+      - basicAuth: []
+      - oauth2:
+        - read:page:confluence
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: 'Basic auth using your Atlassian account email and an API token
+
+        generated at https://id.atlassian.com/manage-profile/security/api-tokens.
+
+        '
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 (3LO) for Atlassian Cloud Connect/Forge apps
+      flows:
+        authorizationCode:
+          authorizationUrl: https://auth.atlassian.com/authorize
+          tokenUrl: https://auth.atlassian.com/oauth/token
+          scopes:
+            read:confluence-content.summary: Read content summaries
+            read:confluence-content.all: Read full content
+            write:confluence-content: Create, update, and delete content
+            read:page:confluence: Read pages (v2)
+            write:page:confluence: Create and update pages (v2)
+            read:space:confluence: Read spaces (v2)
+            write:space:confluence: Create and update spaces (v2)
