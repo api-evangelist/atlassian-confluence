@@ -3,7 +3,20 @@ name: Atlassian Confluence
 description: |
   Atlassian Confluence is a team collaboration and wiki platform for creating, organizing, and discussing work with your team. It provides REST APIs (v1 and v2) and a GraphQL API for managing content, spaces, pages, users, labels, and search across Confluence Cloud deployments, enabling automation, app development, and integration with enterprise workflows.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/atlassian-confluence.png
 tags:
 - Atlassian
 - Collaboration
@@ -17,48 +30,11 @@ created: '2024-01-15'
 modified: '2026-04-19'
 specificationVersion: '0.19'
 apis:
-- aid: atlassian-confluence:confluence-cloud-rest-api
-  name: Confluence Cloud REST API
-  description: >-
-    The primary REST API for Confluence Cloud, providing access to content,
-    spaces, users, and more.
-  humanURL: https://developer.atlassian.com/cloud/confluence/rest/
-  baseURL: https://your-domain.atlassian.net/wiki/rest/api
-  tags:
-  - Content
-  - Pages
-  - REST
-  - Spaces
-  properties:
-  - type: Documentation
-    url: https://developer.atlassian.com/cloud/confluence/rest/v1/intro/
-  - type: OpenAPI
-    url: https://dac-static.atlassian.com/cloud/confluence/swagger.v3.json
-  - type: Authentication
-    url: https://developer.atlassian.com/cloud/confluence/authentication/
-  - type: GettingStarted
-    url: https://developer.atlassian.com/cloud/confluence/getting-started/
-- aid: atlassian-confluence:confluence-cloud-rest-api-v2
-  name: Confluence Cloud REST API V2
-  description: >-
-    The next generation REST API for Confluence Cloud with improved
-    performance and new capabilities.
-  humanURL: https://developer.atlassian.com/cloud/confluence/rest/v2/intro/
-  baseURL: https://your-domain.atlassian.net/wiki/api/v2
-  tags:
-  - Content
-  - Pages
-  - REST
-  - Spaces
-  properties:
-  - type: Documentation
-    url: https://developer.atlassian.com/cloud/confluence/rest/v2/intro/
-  - type: OpenAPI
-    url: https://dac-static.atlassian.com/cloud/confluence/openapi-v2.v3.json
 - aid: atlassian-confluence:confluence-cloud-graphql-api
   name: Confluence Cloud GraphQL API
-  description: |
-    The Confluence Cloud GraphQL API provides flexible querying and mutation capabilities for Confluence content, spaces, pages, and user data using OAuth 2.0 authentication.
+  description: >
+    The Confluence Cloud GraphQL API provides flexible querying and mutation capabilities for Confluence
+    content, spaces, pages, and user data using OAuth 2.0 authentication.
   humanURL: https://developer.atlassian.com/cloud/confluence/graphql/
   baseURL: https://api.atlassian.com/graphql
   tags:
@@ -71,6 +47,96 @@ apis:
     url: https://developer.atlassian.com/cloud/confluence/graphql/
   - url: graphql/atlassian-confluence-graphql.md
     type: GraphQL
+- aid: atlassian-confluence:atlassian-confluence-content-v1-api
+  name: Atlassian Confluence Content (v1) API
+  description: Legacy /rest/api/content operations
+  humanURL: https://developer.atlassian.com/cloud/confluence/rest/
+  baseURL: https://your-domain.atlassian.net/wiki/rest/api
+  tags:
+  - Content (v1)
+  properties:
+  - type: OpenAPI
+    url: openapi/atlassian-confluence-content-v1-api-openapi.yml
+  - type: Documentation
+    url: https://developer.atlassian.com/cloud/confluence/rest/v1/intro/
+  - type: Authentication
+    url: https://developer.atlassian.com/cloud/confluence/authentication/
+  - type: GettingStarted
+    url: https://developer.atlassian.com/cloud/confluence/getting-started/
+  - type: Documentation
+    url: https://developer.atlassian.com/cloud/confluence/rest/v2/intro/
+- aid: atlassian-confluence:atlassian-confluence-labels-v2-api
+  name: Atlassian Confluence Labels (v2) API
+  description: Labels and label-targeted listings
+  humanURL: https://developer.atlassian.com/cloud/confluence/rest/
+  baseURL: https://your-domain.atlassian.net/wiki/rest/api
+  tags:
+  - Labels (v2)
+  properties:
+  - type: OpenAPI
+    url: openapi/atlassian-confluence-labels-v2-api-openapi.yml
+  - type: Documentation
+    url: https://developer.atlassian.com/cloud/confluence/rest/v1/intro/
+  - type: Authentication
+    url: https://developer.atlassian.com/cloud/confluence/authentication/
+  - type: GettingStarted
+    url: https://developer.atlassian.com/cloud/confluence/getting-started/
+  - type: Documentation
+    url: https://developer.atlassian.com/cloud/confluence/rest/v2/intro/
+- aid: atlassian-confluence:atlassian-confluence-pages-v2-api
+  name: Atlassian Confluence Pages (v2) API
+  description: Modern cursor-paginated pages
+  humanURL: https://developer.atlassian.com/cloud/confluence/rest/
+  baseURL: https://your-domain.atlassian.net/wiki/rest/api
+  tags:
+  - Pages (v2)
+  properties:
+  - type: OpenAPI
+    url: openapi/atlassian-confluence-pages-v2-api-openapi.yml
+  - type: Documentation
+    url: https://developer.atlassian.com/cloud/confluence/rest/v1/intro/
+  - type: Authentication
+    url: https://developer.atlassian.com/cloud/confluence/authentication/
+  - type: GettingStarted
+    url: https://developer.atlassian.com/cloud/confluence/getting-started/
+  - type: Documentation
+    url: https://developer.atlassian.com/cloud/confluence/rest/v2/intro/
+- aid: atlassian-confluence:atlassian-confluence-search-v1-api
+  name: Atlassian Confluence Search (v1) API
+  description: CQL-based search
+  humanURL: https://developer.atlassian.com/cloud/confluence/rest/
+  baseURL: https://your-domain.atlassian.net/wiki/rest/api
+  tags:
+  - Search (v1)
+  properties:
+  - type: OpenAPI
+    url: openapi/atlassian-confluence-search-v1-api-openapi.yml
+  - type: Documentation
+    url: https://developer.atlassian.com/cloud/confluence/rest/v1/intro/
+  - type: Authentication
+    url: https://developer.atlassian.com/cloud/confluence/authentication/
+  - type: GettingStarted
+    url: https://developer.atlassian.com/cloud/confluence/getting-started/
+  - type: Documentation
+    url: https://developer.atlassian.com/cloud/confluence/rest/v2/intro/
+- aid: atlassian-confluence:atlassian-confluence-spaces-v2-api
+  name: Atlassian Confluence Spaces (v2) API
+  description: Spaces and space settings
+  humanURL: https://developer.atlassian.com/cloud/confluence/rest/
+  baseURL: https://your-domain.atlassian.net/wiki/rest/api
+  tags:
+  - Spaces (v2)
+  properties:
+  - type: OpenAPI
+    url: openapi/atlassian-confluence-spaces-v2-api-openapi.yml
+  - type: Documentation
+    url: https://developer.atlassian.com/cloud/confluence/rest/v1/intro/
+  - type: Authentication
+    url: https://developer.atlassian.com/cloud/confluence/authentication/
+  - type: GettingStarted
+    url: https://developer.atlassian.com/cloud/confluence/getting-started/
+  - type: Documentation
+    url: https://developer.atlassian.com/cloud/confluence/rest/v2/intro/
 common:
 - type: AgenticAccess
   url: agentic-access/atlassian-confluence-agentic-access.yml
