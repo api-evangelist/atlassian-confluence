@@ -1,0 +1,22 @@
+{
+  "provider": "atlassian-confluence",
+  "sources": [
+    "atlassian-confluence-content-v1-api-openapi.yml",
+    "atlassian-confluence-labels-v2-api-openapi.yml",
+    "atlassian-confluence-pages-v2-api-openapi.yml",
+    "atlassian-confluence-search-v1-api-openapi.yml",
+    "atlassian-confluence-spaces-v2-api-openapi.yml"
+  ],
+  "outputs": [
+    "atlassian-confluence-content-v1-api-openapi.yml",
+    "atlassian-confluence-labels-v2-api-openapi.yml",
+    "atlassian-confluence-pages-v2-api-openapi.yml",
+    "atlassian-confluence-search-v1-api-openapi.yml",
+    "atlassian-confluence-spaces-v2-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
