@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Atlassian Confluence Cloud REST API (v1 and v2) Content (v1) Content (v1) Search (v1) API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search (v1)",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search content using CQL",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-domain.atlassian.net/wiki/rest/api/content/search",
+            "params": [
+              {
+                "name": "cql",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cqlcontext",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "expand",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "includeArchivedSpaces",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Search content using CQL"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

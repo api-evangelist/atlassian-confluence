@@ -1,0 +1,210 @@
+{
+  "item": [
+    {
+      "id": "4a362042-e874-4567-ae69-36fe2d6d1a65",
+      "name": "Labels (v2)",
+      "description": {
+        "content": "Labels and label-targeted listings",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c527be85-0c3d-4742-9d00-40c47bdeb2ef",
+          "name": "List pages with the given label",
+          "request": {
+            "name": "List pages with the given label",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "labels",
+                ":id",
+                "pages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "space-id",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "space-id",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "body-format",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "25"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your Atlassian site subdomain",
+                  "type": "any",
+                  "value": "{{your-domain}}",
+                  "key": "your-domain"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "68b446d7-6702-422d-be1e-a94443ef6b14",
+              "name": "Page list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "labels",
+                    ":id",
+                    "pages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "space-id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "space-id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "body-format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your Atlassian site subdomain",
+                      "type": "any",
+                      "value": "{{your-domain}}",
+                      "key": "your-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Atlassian site subdomain",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "example",
+      "key": "your-domain"
+    },
+    {
+      "type": "string",
+      "value": "https://your-domain.atlassian.net/wiki",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ebb054f5-7ca1-48e7-9f7e-1ecb82858f5d",
+    "name": "Atlassian Confluence Cloud REST API (v1 and v2) Content (v1) Content (v1) Labels (v2) API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Confluence Cloud exposes both a v1 REST API (under /wiki/rest/api) for\nlegacy content operations and a v2 REST API (under /wiki/api/v2) for\ncursor-paginated access to pages, spaces, attachments, labels, and\ncomments. The v2 surface is the recommended one for new integrations.\n\n\nContact Support:\n Name: Atlassian Developer",
+      "type": "text/plain"
+    }
+  }
+}

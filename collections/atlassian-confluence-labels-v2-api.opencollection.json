@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Atlassian Confluence Cloud REST API (v1 and v2) Content (v1) Content (v1) Labels (v2) API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Labels (v2)",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List pages with the given label",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-domain.atlassian.net/wiki/api/v2/labels/:id/pages",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "space-id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "body-format",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "List pages with the given label"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,112 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Atlassian Confluence Cloud REST API (v1 and v2) Content (v1) Content (v1) Content (v1) API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Content (v1)",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Archive one or more pages",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-domain.atlassian.net/wiki/rest/api/content/archive",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Archive one or more pages"
+        },
+        {
+          "info": {
+            "name": "Publish a legacy draft created from a blueprint",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-domain.atlassian.net/wiki/rest/api/content/blueprint/instance/:draftId",
+            "params": [
+              {
+                "name": "draftId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "expand",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Publish a legacy draft created from a blueprint"
+        },
+        {
+          "info": {
+            "name": "Publish a shared draft created from a blueprint",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://your-domain.atlassian.net/wiki/rest/api/content/blueprint/instance/:draftId",
+            "params": [
+              {
+                "name": "draftId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "expand",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Publish a shared draft created from a blueprint"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
